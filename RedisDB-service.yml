@@ -1,8 +1,8 @@
 ---
 apiVersion: v1
-kind: service
+kind: Service
 metadata:
-  name: redisDB-service
+  name: redis-service
   labels:
     author: yugo
 spec:
