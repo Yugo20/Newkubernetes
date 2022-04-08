@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    author: yugo
+    name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgres-deployment
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        name: postgres-deployment
+    spec:
+      containers:
+        - name: postgres-db
+          image: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              value: yugo
+            - name: POSTGRES_USER
+              value: myuser
+            - name: POSTGRES_DB
+              value: mydb
+...
